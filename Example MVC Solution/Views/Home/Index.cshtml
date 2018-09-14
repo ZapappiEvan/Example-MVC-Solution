@@ -1,0 +1,45 @@
+﻿@using Zapappi.Client.Models
+    @model List<TelephoneNumberModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    <h1>Zapappi API Example</h1>
+    <p class="lead">The Zapappi API is an open API that's great for integrating Zapappi into your websites and applications.</p>
+    <p><a href="https://zapappi-publicapi-dev-test.azurewebsites.net/home/api" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Your Numbers</h2>
+        <div>
+            <table class="table table-condensed table-striped">
+                <thead>
+                <th>Country Code</th>
+                <th>Area Name</th>
+                <th>Number</th>
+                <th>Created At</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CountryCode</td>
+                            <td>@item.AreaName</td>
+                            <td>@item.Number</td>
+                            <td>@item.Created.Value.Date.ToString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4" id="sidebar">
+        <h2></h2>
+        <p>This is a standard sidebar :).</p>
+        <p><a class="btn btn-default" href="https://bootstrapious.com/p/bootstrap-sidebar">Fixed Sidebar<br> Guide &raquo;</a></p>
+    </div>
+</div>
+
